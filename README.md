@@ -15,6 +15,7 @@ La plataforma permite administrar animales, tratamientos, adopciones, donaciones
 | Jessica Hernandez             | jessicadhd34@gmail.com             |
 | Sofia Vega                    | sofiavega320@aragon.unam.mx        |
 | Vega Ibañez Joseph Uriel      | vjosephuriel@gmail.com             |
+| Castro Pérez Alejandro Uriel  | auriel.castroperez@gmail.com       |
 
 ---
 
