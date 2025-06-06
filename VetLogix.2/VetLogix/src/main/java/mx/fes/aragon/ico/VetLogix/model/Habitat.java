@@ -12,8 +12,6 @@ public class Habitat {
     private String tipo;
     private String ubicacion;
 
-    // Getters y setters
-
     public Long getId() {
         return id;
     }
