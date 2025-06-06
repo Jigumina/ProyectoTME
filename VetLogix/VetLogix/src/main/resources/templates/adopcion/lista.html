@@ -2,11 +2,81 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Lista de Adopciones</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
+            margin: 40px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .add-btn {
+            display: block;
+            width: fit-content;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #28a745;
+            color: white;
+            border-radius: 5px;
+        }
+
+        .add-btn:hover {
+            background-color: #218838;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+
+        th {
+            background-color: #343a40;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .actions a {
+            margin: 0 5px;
+            color: #007bff;
+        }
+
+        .actions a:hover {
+            color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-<h1>Adopciones registradas</h1>
-<a href="/adopcion/nueva">Registrar nueva adopción</a>
-<table border="1">
+
+<h1>Adopciones Registradas</h1>
+
+<a class="add-btn" href="/adopcion/nueva">Registrar Nueva Adopción</a>
+
+<table>
+    <thead>
     <tr>
         <th>ID</th>
         <th>Animal</th>
@@ -15,17 +85,21 @@
         <th>Fecha</th>
         <th>Acciones</th>
     </tr>
+    </thead>
+    <tbody>
     <tr th:each="adopcion : ${adopciones}">
-        <td th:text="${adopcion.id}"></td>
-        <td th:text="${adopcion.nombreAnimal}"></td>
-        <td th:text="${adopcion.adoptanteNombre}"></td>
-        <td th:text="${adopcion.contacto}"></td>
-        <td th:text="${adopcion.fechaAdopcion}"></td>
-        <td>
-            <a th:href="@{'/adopcion/editar/' + ${adopcion.id}}">Editar</a> |
+        <td th:text="${adopcion.id}">1</td>
+        <td th:text="${adopcion.nombreAnimal}">Firulais</td>
+        <td th:text="${adopcion.adoptanteNombre}">Juan Pérez</td>
+        <td th:text="${adopcion.contacto}">juan@mail.com</td>
+        <td th:text="${adopcion.fechaAdopcion}">2025-06-01</td>
+        <td class="actions">
+            <a th:href="@{'/adopcion/editar/' + ${adopcion.id}}">Editar</a>
             <a th:href="@{'/adopcion/eliminar/' + ${adopcion.id}}">Eliminar</a>
         </td>
     </tr>
+    </tbody>
 </table>
+
 </body>
 </html>
