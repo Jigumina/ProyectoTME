@@ -54,5 +54,5 @@ Proporciona módulos clave para la gestión diaria, con un enfoque en eficiencia
 
 ### 1. Clonar el repositorio
 ```bash
-git clone https://github.com/tu-usuario/proyecto-tme-vetlogix.git
+git clone https://github.com/Jigumina/proyecto-tme-vetlogix.git
 cd proyecto-tme-vetlogix
