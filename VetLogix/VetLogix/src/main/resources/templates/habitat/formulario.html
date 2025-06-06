@@ -1,21 +1,108 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Formulario de Hábitat</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e0e5ec;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .contenedor {
+            max-width: 600px;
+            margin: auto;
+            background-color: #e0e5ec;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 10px 10px 30px #bebebe,
+                        -10px -10px 30px #ffffff;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #444;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            background: #e0e5ec;
+            border: none;
+            border-radius: 12px;
+            box-shadow: inset 6px 6px 10px #c5c9ce,
+                        inset -6px -6px 10px #ffffff;
+            font-size: 15px;
+            color: #333;
+        }
+
+        input:focus {
+            outline: none;
+            box-shadow: inset 4px 4px 8px #c5c9ce,
+                        inset -4px -4px 8px #ffffff;
+        }
+
+        button {
+            margin-top: 30px;
+            width: 100%;
+            background-color: #3498db;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+            font-size: 17px;
+            font-weight: bold;
+            box-shadow: 5px 5px 15px #b0b0b0,
+                        -5px -5px 15px #ffffff;
+            transition: all 0.2s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        a.regresar {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #666;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a.regresar:hover {
+            text-decoration: underline;
+            color: #444;
+        }
+    </style>
 </head>
 <body>
-<h2 th:text="${habitat.id == null} ? 'Nuevo Hábitat' : 'Editar Hábitat'"></h2>
-<form th:action="@{/habitats/guardar}" th:object="${habitat}" method="post">
-    <input type="hidden" th:field="*{id}" />
+<div class="contenedor">
+    <h2 th:text="${habitat.id == null} ? 'Nuevo Hábitat' : 'Editar Hábitat'"></h2>
+    <form th:action="@{/habitats/guardar}" th:object="${habitat}" method="post">
+        <input type="hidden" th:field="*{id}" />
 
-    <label>Tipo:</label>
-    <input type="text" th:field="*{tipo}" required/><br/>
+        <label>Tipo:</label>
+        <input type="text" th:field="*{tipo}" required />
 
-    <label>Ubicación:</label>
-    <input type="text" th:field="*{ubicacion}" required/><br/>
+        <label>Ubicación:</label>
+        <input type="text" th:field="*{ubicacion}" required />
 
-    <button type="submit">Guardar</button>
-</form>
-<a th:href="@{/habitats}">Regresar</a>
+        <button type="submit">Guardar</button>
+    </form>
+    <a class="regresar" th:href="@{/habitats}">← Regresar</a>
+</div>
 </body>
 </html>

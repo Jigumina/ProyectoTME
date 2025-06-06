@@ -2,17 +2,112 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Formulario Tratamiento</title>
+    <title>Formulario Animal</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #1e1e2f;
+            margin: 0;
+            padding: 20px;
+            color: #f0f0f0;
+        }
+
+        .contenedor {
+            max-width: 600px;
+            margin: auto;
+            background-color: #2a2a3b;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        h1 {
+            text-align: center;
+            color: #f8f8f8;
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            margin-top: 20px;
+            font-weight: 600;
+            color: #cccccc;
+        }
+
+        input[type="text"],
+        select {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            background-color: #3a3a4f;
+            border: 1px solid #555;
+            border-radius: 10px;
+            font-size: 15px;
+            color: #f0f0f0;
+        }
+
+        input:focus,
+        select:focus {
+            outline: none;
+            border-color: #6c63ff;
+            background-color: #44445a;
+        }
+
+        button {
+            margin-top: 30px;
+            width: 100%;
+            background-color: #6c63ff;
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        button:hover {
+            background-color: #5750d2;
+            transform: translateY(-2px);
+        }
+
+        a.volver {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #aaa;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        a.volver:hover {
+            text-decoration: underline;
+            color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
-<h1 th:text="${tratamiento.id != null} ? 'Editar Tratamiento' : 'Nuevo Tratamiento'"></h1>
-<form th:action="@{/tratamiento/guardar}" th:object="${tratamiento}" method="post">
-    <label>Nombre:</label>
-    <input type="text" th:field="*{nombre}" /><br/>
-    <label>Descripción:</label>
-    <textarea th:field="*{descripcion}"></textarea><br/>
-    <button type="submit">Guardar</button>
-</form>
-<a th:href="@{/tratamiento}">Volver</a>
+<div class="contenedor">
+    <h1 th:text="${animal.id != null} ? 'Editar Animal' : 'Nuevo Animal'"></h1>
+    <form th:action="@{/animal/guardar}" th:object="${animal}" method="post">
+        <label>Nombre:</label>
+        <input type="text" th:field="*{nombre}" />
+
+        <label>Especie:</label>
+        <input type="text" th:field="*{especie}" />
+
+        <label>Hábitat:</label>
+        <select th:field="*{habitat.id}">
+            <option th:each="habitat : ${habitats}"
+                    th:value="${habitat.id}"
+                    th:text="${habitat.nombre}">
+            </option>
+        </select>
+
+        <button type="submit">Guardar</button>
+    </form>
+    <a class="volver" th:href="@{/animal}">← Volver</a>
+</div>
 </body>
 </html>
