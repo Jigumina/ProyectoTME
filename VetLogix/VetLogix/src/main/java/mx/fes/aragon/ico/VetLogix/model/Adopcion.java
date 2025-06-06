@@ -15,7 +15,7 @@ public class Adopcion {
     private String contacto;
     private LocalDate fechaAdopcion;
 
-    // ✅ Constructor vacío obligatorio para JPA
+    // Constructor vacío obligatorio para JPA
     public Adopcion() {
     }
 

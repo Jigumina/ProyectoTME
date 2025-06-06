@@ -63,4 +63,11 @@ public class AnimalController {
         animalService.deleteById(id);
         return "redirect:/animal";
     }
+
+    @GetMapping("/editar/{od}")
+    public String editarAnimal(@PathVariable Long edad) {
+        animalService.deleteById(edad);
+        return "redirect:/animal";
+    }
+    //
 }

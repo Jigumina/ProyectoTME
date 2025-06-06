@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 @Controller
 @RequestMapping("/visitas")
+//
 public class VisitaMedicaController {
 
     @Autowired
