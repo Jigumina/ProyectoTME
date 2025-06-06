@@ -13,7 +13,6 @@ public class VisitaMedica {
     private String motivo;
     private String observaciones;
 
-    // Getters y setters
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
 
